@@ -28,6 +28,27 @@ public class Board {
     }
 
     public bool PlayerWon(PlayerSymbol symbol) {
+        int numRows = _cells.GetLength(0);
+        int numColumns = _cells.GetLength(1);
+
+        // Check for horizontal wins
+        for (int row = 0; row < numRows; row++) {
+            if (_cells[row, 0] == symbol && _cells[row, 1] == symbol && _cells[row, 2] == symbol)
+                return true;
+        }
+
+        // Check for vertical wins
+        for (int column = 0; column < numColumns; column++) {
+            if (_cells[0, column] == symbol && _cells[1, column] == symbol && _cells[2, column] == symbol)
+                return true;
+        }
+
+        // Check for diagonal wins
+        if (_cells[1, 1] == symbol) {
+            if ((_cells[0, 0] == symbol && _cells[2, 2] == symbol) || (_cells[0, 2] == symbol && _cells[2, 0] == symbol))
+                return true;
+        }
+
         return false;
     }
 
