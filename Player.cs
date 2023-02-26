@@ -1,7 +1,7 @@
 public enum PlayerSymbol {
     Empty,
     X,
-    Y
+    O
 }
 
 public class Player {
