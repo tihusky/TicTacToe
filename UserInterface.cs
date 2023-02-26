@@ -9,6 +9,41 @@ public static class UserInterface {
         }
     }
 
+    public static void DisplayBoard(Board board) {
+        // Get cells from the board
+        // Iterate rows in reverse
+        //      If not on the first printed row
+        //          Print separator
+        //      Iterate columns
+        //          If not on the first column
+        //              Print separator
+        //          Print column
+        //      Print line break
+        PlayerSymbol[,] cells = board.Cells;
+        int numRows = cells.GetLength(0);
+        int numColumns = cells.GetLength(1);
+
+        for (int row = numRows - 1; row >= 0; row--) {
+            if (row != numRows - 1)
+                Console.WriteLine("---+---+---");
+
+            for (int column = 0; column < numColumns; column++) {
+                if (column != 0)
+                    Console.Write("|");
+
+                char symbol = cells[row, column] switch {
+                    PlayerSymbol.X => 'x',
+                    PlayerSymbol.O => 'o',
+                    _ => ' '
+                };
+
+                Console.Write($" {symbol} ");
+            }
+
+            Console.WriteLine();
+        }
+    }
+
     public static void Write(string text) {
         Console.Write(text);
     }
