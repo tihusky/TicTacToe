@@ -21,6 +21,20 @@ public class Board {
         return _cells[row, column] == PlayerSymbol.Empty;
     }
 
+    public bool AllCellsFilled() {
+        int numRows = _cells.GetLength(0);
+        int numColumns = _cells.GetLength(1);
+
+        for (int row = 0; row < numRows; row++) {
+            for (int column = 0; column < numColumns; column++) {
+                if (_cells[row, column] == PlayerSymbol.Empty)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
     public void Update(int cellNumber, PlayerSymbol symbol) {
         (int row, int column) = NumberToIndices(cellNumber);
 

@@ -10,15 +10,6 @@ public static class UserInterface {
     }
 
     public static void DisplayBoard(Board board) {
-        // Get cells from the board
-        // Iterate rows in reverse
-        //      If not on the first printed row
-        //          Print separator
-        //      Iterate columns
-        //          If not on the first column
-        //              Print separator
-        //          Print column
-        //      Print line break
         PlayerSymbol[,] cells = board.Cells;
         int numRows = cells.GetLength(0);
         int numColumns = cells.GetLength(1);
